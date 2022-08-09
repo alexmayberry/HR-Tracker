@@ -1,0 +1,24 @@
+{
+  "name": "hr-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexmayberry/HR-Tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexmayberry/HR-Tracker/issues"
+  },
+  "homepage": "https://github.com/alexmayberry/HR-Tracker#readme"
+}

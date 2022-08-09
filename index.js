@@ -2,16 +2,19 @@
 const inquirer = require('inquirer');
 
 // Import employee
-const Employee = require('./employee');
+const Employee = require('./lib/employee');
 
 // Import intern
-const Intern = require('./intern');
+const Intern = require('./lib/intern');
 
 // Import manager
-const Manager = require('./manager');
+const Manager = require('./lib/manager');
 
 // Import engineer
-const Engineer = require('./engineer');
+const Engineer = require('./lib/engineer');
+
+// Create empty arraylist for employee roster
+const employees = [];
 
 // asks to add another employee or create index.html
 const addNewEmployee = () => {
@@ -65,8 +68,11 @@ const employeePrompt = () => {
 }
 
 // tests for type of employee and calls the correct next question.
-const roleTest = (employee) => {
-    
+const roleTest = (newEmployee) => {
+    return newEmployee.role === "engineer" ? Engineer.ePrompt(newEmployee)
+    : newEmployee.role === "intern" ? Intern.iPrompt(newEmployee)
+    : newEmployee.role === "manager" ? Manager.mPrompt(newEmployee)
+    : console.log("test");
 }
 
 const renderHTML = () => {
