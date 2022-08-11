@@ -29,11 +29,11 @@ const addNewEmployee = () => {
     ])
     .then((answer) => {
       console.log("addNewEmployee has run, ", answer.role);
-      // answer.role === "Engineer"
-      //   ? engineerPrompt()
-      //   : answer.role === "Intern"
-      //   ? internPrompt()
-      //   : renderHTML();
+      answer.role === "Engineer"
+        ? engineerPrompt()
+        : answer.role === "Intern"
+        ? internPrompt()
+        : renderHTML();
     });
 };
 
@@ -41,20 +41,21 @@ const managerPrompt = () => {
   console.log("Ur a manager!");
   // const newManager = new Manager();
   // employeePrompt(newManager);
-  inquirer
+  employeePrompt()
+  .then(inquirer
     .prompt([
       {
         type: "input",
         message: "What is your office number?",
         name: "officeNumber"
       }
-    ])
+    ]))
     .then((answer) => {
       console.log(answer);
       // newManager.officeNumber = answer.officeNumber;
+      // addEmployeeObj(newManager);
+      addNewEmployee();
     });
-  // addEmployeeObj(newManager);
-  addNewEmployee();
 };
 
 const engineerPrompt = () => {
@@ -104,7 +105,6 @@ const employeePrompt = (employeeObj) => {
       employeeObj.name = name;
       console.log(employeeObj.name);
     });
-    // return employeeObj;
 };
 
 const addEmployeeObj = (employeeObj) => {
