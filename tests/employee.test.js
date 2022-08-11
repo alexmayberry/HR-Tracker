@@ -1,6 +1,5 @@
-const { isTypedArray } = require("util/types")
-const Employee = require("../lib/employee")
-const employee = require("../lib/employee")
+const { isTypedArray } = require("util/types");
+const Employee = require("../lib/Employee");
 
 describe('employeeClass', () => {
     // Arrange
