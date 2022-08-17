@@ -1,14 +1,16 @@
 // Import inquirer
 const inquirer = require("inquirer");
 
-// Import intern
+// Import fs
+const fs = require("fs");
+
+// Import employee classes
 const Intern = require("./lib/Intern");
-
-// Import manager
 const Manager = require("./lib/Manager");
-
-// Import engineer
 const Engineer = require("./lib/Engineer");
+
+//Import generateHTML
+const generateHTML = require("./src/page-template");
 
 // Create empty arraylist for employee roster
 const employees = [];
@@ -33,6 +35,7 @@ const addNewEmployee = () => {
     });
 };
 
+// prompt questions for manager
 const managerPrompt = () => {
   inquirer
     .prompt([
@@ -131,9 +134,13 @@ const internPrompt = () => {
 
 
 const renderHTML = () => {
-  console.log("HTML has been sooooo rendered");
+  const templateHTML = generateHTML(employees);
+  fs.writeFile("newindex.html", templateHTML, (err) => 
+  err ? console.log(err) : console.log('Success! index.HTML has been created'))
 };
 
 //run script
 managerPrompt();
+
+
 
