@@ -29,6 +29,6 @@ describe('Engineer Class', () => {
         const james = new Engineer("james", "45", "james@hotmail.com", "coder6345");
 
         // Assert
-        expect(james.githubUsername).toBe("coder6345");
+        expect(james.github).toBe("coder6345");
     });
 })

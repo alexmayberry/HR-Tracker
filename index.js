@@ -1,9 +1,6 @@
 // Import inquirer
 const inquirer = require("inquirer");
 
-// Import employee
-const Employee = require("./lib/Employee");
-
 // Import intern
 const Intern = require("./lib/Intern");
 
@@ -28,7 +25,6 @@ const addNewEmployee = () => {
       },
     ])
     .then((answer) => {
-      console.log("addNewEmployee has run, ", answer.role);
       answer.role === "Engineer"
         ? engineerPrompt()
         : answer.role === "Intern"
@@ -38,50 +34,38 @@ const addNewEmployee = () => {
 };
 
 const managerPrompt = () => {
-  console.log("Ur a manager!");
-  // const newManager = new Manager();
-  // employeePrompt(newManager);
-  employeePrompt()
-  .then(inquirer
+  inquirer
     .prompt([
+      {
+        type: "input",
+        message: "What is your name?",
+        name: "name",
+      },
+      {
+        type: "input",
+        message: "What is your ID?",
+        name: "id",
+      },
+      {
+        type: "input",
+        message: "What is your email?",
+        name: "email",
+      },
       {
         type: "input",
         message: "What is your office number?",
         name: "officeNumber"
       }
-    ]))
+    ])
     .then((answer) => {
-      console.log(answer);
-      // newManager.officeNumber = answer.officeNumber;
-      // addEmployeeObj(newManager);
+      const { name, id, email, officeNumber } = answer;
+      const manager = new Manager(name, id, email, officeNumber)
+      employees.push(manager);
       addNewEmployee();
     });
 };
 
 const engineerPrompt = () => {
-  console.log("Ur an Engineer!");
-  // employeePrompt();
-  addNewEmployee();
-};
-
-const internPrompt = () => {
-  console.log("Ur an Intern!");
-  // employeePrompt();
-  // inquirer
-  //   .prompt([
-  //     {
-  //       type: "input",
-  //       message: "What school do they go to?",
-  //       name: "school",
-  //     },
-  //   ]).then((answer) => {
-  //     console.log(answer);
-  //   });
-  addNewEmployee();
-};
-
-// gets info for employee class and creates new employee
-const employeePrompt = (employeeObj) => {
   inquirer
     .prompt([
       {
@@ -99,17 +83,52 @@ const employeePrompt = (employeeObj) => {
         message: "What is their email?",
         name: "email",
       },
+      {
+        type: "input",
+        message: "What is their github?",
+        name: "github",
+      }
     ])
     .then((answer) => {
-      const { name, id, email, role } = answer;
-      employeeObj.name = name;
-      console.log(employeeObj.name);
+      const { name, id, email, github } = answer;
+      const engineer = new Engineer(name, id, email, github)
+      employees.push(engineer);
+      addNewEmployee();
     });
 };
 
-const addEmployeeObj = (employeeObj) => {
-  employees.push(employeeObj);
+const internPrompt = () => {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "What is their name?",
+        name: "name",
+      },
+      {
+        type: "input",
+        message: "What is their ID?",
+        name: "id",
+      },
+      {
+        type: "input",
+        message: "What is their email?",
+        name: "email",
+      },
+      {
+        type: "input",
+        message: "What is their school?",
+        name: "school",
+      }
+    ])
+    .then((answer) => {
+      const { name, id, email, school } = answer;
+      const intern = new Intern(name, id, email, school)
+      employees.push(intern);
+      addNewEmployee();
+    });
 };
+
 
 const renderHTML = () => {
   console.log("HTML has been sooooo rendered");
@@ -118,11 +137,3 @@ const renderHTML = () => {
 //run script
 managerPrompt();
 
-// module.exports = [
-//   renderHTML,
-//   managerPrompt,
-//   employeePrompt,
-//   engineerPrompt,
-//   internPrompt,
-//   addNewEmployee,
-// ];

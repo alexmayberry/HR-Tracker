@@ -23,7 +23,7 @@ describe('Intern Class', () => {
     });
 
     // Arrange
-    it('should store the github username of the new Intern', () => {
+    it('should store the school of the new Intern', () => {
 
         // Act
         const Jen = new Intern("Jen", "45", "Jen@hotmail.com", "Wazzu");
