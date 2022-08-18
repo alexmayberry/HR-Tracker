@@ -135,7 +135,7 @@ const internPrompt = () => {
 
 const renderHTML = () => {
   const templateHTML = generateHTML(employees);
-  fs.writeFile("newindex.html", templateHTML, (err) => 
+  fs.writeFile("index.html", templateHTML, (err) => 
   err ? console.log(err) : console.log('Success! index.HTML has been created'))
 };
 
