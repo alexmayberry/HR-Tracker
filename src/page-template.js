@@ -2,23 +2,24 @@ const generateHTML = (employees) => {
 
     let cards = '';
     for (let i = 0; i < employees.length; i++) {
+        const employee = employees[i];
         let fourthDetail = '';
-        if (employees[i].officeNumber !== undefined) {
-            fourthDetail = employees[i].officeNumber;
-        } else if (employees[i].github !== undefined) {
-            fourthDetail = employees[i].github;
-        } else if (employees[i].school !== undefined) {
-            fourthDetail = employees[i].school;
+        if (employee.officeNumber !== undefined) {
+            fourthDetail = employee.officeNumber;
+        } else if (employee.github !== undefined) {
+            fourthDetail = employee.github;
+        } else if (employee.school !== undefined) {
+            fourthDetail = employee.school;
         }
         
         const card = `
-            <div class="card col-md-3 m-2 bg-${employees[i].color} text-white">
+            <div class="card col-md-3 m-2 bg-${employee.color} text-white">
                 <div class="card-body">
-                    <h6 class="card-title py-1">${employees[i].role}</h6>
-                    <h3 class="card-title py-2">${employees[i].name}</h3>
+                    <h6 class="card-title py-1">${employee.getRole()}</h6>
+                    <h3 class="card-title py-2">${employee.name}</h3>
                     <ul class="list-group">
-                        <li class="list-group-item">${employees[i].id}</li>
-                        <li class="list-group-item">${employees[i].email}</li>
+                        <li class="list-group-item">${employee.id}</li>
+                        <li class="list-group-item">${employee.email}</li>
                         <li class="list-group-item">${fourthDetail}</li>
                     </ul>
                 </div>
