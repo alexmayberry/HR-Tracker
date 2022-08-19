@@ -46,7 +46,9 @@
 
   ## Video Walkthrough
 
-  [Video Walkthrough](n/a)
+  [![Video Walkthrough](demo/demo-image.PNG)](https://drive.google.com/file/d/1rncchx7QGS4f2MXmAYHeyiTLk0TJWi3S/view?usp=sharing)
+  <br>
+  Also see the [video](https://drive.google.com/file/d/18OP9irlBgBGir-6NOyEn_6DKNvaVeDkF/view) demonstrating how to run and test the app.
 
   ## Installation
 
@@ -63,10 +65,6 @@
   ## Contribution
 
   Jump in! A good next step would be to create different style sheets render the team pages in different styles.
-
-  ## Preview Image
-
-  ![image](n/a)
 
   ## Questions
 
